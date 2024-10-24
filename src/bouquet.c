@@ -302,6 +302,8 @@ bouquet_map_channel(bouquet_t *bq, service_t *t)
 
   if (!t->s_enabled)
     return;
+  if (!service_is_tv(t) && !service_is_radio(t))
+    return;
   if (!bq->bq_mapradio && service_is_radio(t))
     return;
   if (!bq->bq_mapnolcn &&
